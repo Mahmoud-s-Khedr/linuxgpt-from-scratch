@@ -97,11 +97,83 @@ python cli.py --model gpt2_15m --chat
 
 These names work after you download the corresponding trained checkpoint. The default stage is SFT; `--stage pretrain` selects a pretraining checkpoint for comparison.
 
+### Try more Q&A examples
+
+With the checkpoint from the local training instructions:
+
+```bash
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --temp 0 --max-tokens 64 "What is ls?"
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --temp 0 --max-tokens 128 "How do I find files larger than 100 MB?"
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --temp 0 --max-tokens 128 "What is the difference between chmod and chown?"
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --temp 0 --max-tokens 128 'How do single and double quotes differ for $HOME?'
+```
+
+Single quotes in the last example keep your shell from expanding `$HOME` before the question reaches the model. To display load and generation timing, add `--stats`:
+
+```bash
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --temp 0 --max-tokens 64 --stats "How do I check free disk space?"
+```
+
+If you have several Colab checkpoints in this checkout, ask the same question of all discovered models:
+
+```bash
+python cli.py --compare --temp 0 --max-tokens 64 "What is ls?"
+```
+
+### Reuse models from the original LinuxGPT workspace
+
+These optional examples reuse existing trained models without retraining or copying weights. They assume the original workspace is at `~/test/linuxGPT` and this repository is at `~/test/linuxGPT-publications/linuxgpt-from-scratch`. Adjust the paths for your machine.
+
+```bash
+export LINUXGPT_WORKSPACE="$HOME/test/linuxGPT"
+source "$LINUXGPT_WORKSPACE/.venv/bin/activate"
+cd "$HOME/test/linuxGPT-publications/linuxgpt-from-scratch"
+
+python cli.py \
+  --checkpoint "$LINUXGPT_WORKSPACE/experiments/A-pytorch-gpt/runs/colab_llama_15m/sft_bf16.pt" \
+  --tokenizer "$LINUXGPT_WORKSPACE/experiments/A-pytorch-gpt/artifacts/tokenizer.json" \
+  --temp 0 --max-tokens 64 \
+  "What is ls?"
+```
+
+To try GPT-2 50M from that workspace:
+
+```bash
+python cli.py \
+  --checkpoint "$LINUXGPT_WORKSPACE/experiments/A-pytorch-gpt/runs/colab_gpt2_50m/sft_bf16.pt" \
+  --tokenizer "$LINUXGPT_WORKSPACE/experiments/A-pytorch-gpt/artifacts/tokenizer.json" \
+  --temp 0 --max-tokens 128 \
+  "How do I check free disk space?"
+```
+
+For interactive Q&A with an existing LLaMA checkpoint:
+
+```bash
+python cli.py \
+  --checkpoint "$LINUXGPT_WORKSPACE/experiments/A-pytorch-gpt/runs/colab_llama_15m/sft_bf16.pt" \
+  --tokenizer "$LINUXGPT_WORKSPACE/experiments/A-pytorch-gpt/artifacts/tokenizer.json" \
+  --chat
+```
+
+You can also select `colab_gpt2_15m` or `colab_llama_50m` in the checkpoint path, if you have those runs. Keep the tokenizer that was used for the chosen checkpoint.
+
+A successful smoke test loads the checkpoint and prints an answer. Answer correctness is a separate check: these scratch models often produce incomplete or incorrect answers, as the benchmark below shows.
+
 ## Autocomplete
 
 ```bash
 python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --complete --ctx 'files=compose.yml' 'docker compose '
 ```
+
+Try a partial flag, a supplied archive filename, and a filename containing a space:
+
+```bash
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --complete --no-ctx 'git log --on'
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --complete --ctx 'files=release.tar.gz' 'tar -xzf '
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --complete --ctx 'files=report draft.txt' 'cat '
+```
+
+The CLI prints the original prefix followed by its generated suffix. Preserve trailing spaces in quoted prefixes such as `'cat '`. These are tasks to test, not guaranteed correct completions.
 
 The CLI displays suggestions; it does not execute generated commands. This is a CLI prototype, not an installed Bash/Zsh inline widget.
 
