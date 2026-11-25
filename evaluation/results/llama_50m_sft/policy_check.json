@@ -1,0 +1,119 @@
+{
+  "model": "llama_50m_sft",
+  "settings": {
+    "qa_temperature": 0.3,
+    "top_p": 0.9,
+    "qa_repetition_penalty": 1.18,
+    "completion_temperature": 0,
+    "completion_repetition_penalty": 1.05,
+    "penalty_window": "last 48 generated tokens",
+    "seed": 123
+  },
+  "limitations": "Six selected cases, one seed, same output caps; supplemental sensitivity diagnostic, not a full second benchmark.",
+  "responses": [
+    {
+      "case_id": "qa_hidden",
+      "mode": "qa",
+      "output": "You can use `ls -l` to list all files in the current directory.\n\n```\nls -l /path/to/dir | grep -v \".*\"\n```",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "\\bls\\s+[^\\n`]*-(?:[a-zA-Z]*a|[a-zA-Z]*A|-(?:all|almost-all))"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_large",
+      "mode": "qa",
+      "output": "You can use `find` to find files larger than 1 GiB in the current directory.\n\n```\nfind . -type f -size +10k -exec grep -v \"*.[0-9]+\" {} \\; | sort -n | head -1\n```",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "-size\\s+\\+(?:1G|1073741824c)"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_fake_grep",
+      "mode": "qa",
+      "output": "`grep --quantum-sort` is a special feature of `grep`.\n\nIn the case of `-A`, it's not an option, but you can use `--quantum-sort`:\n\n```\n$ grep -A --quantum-sort '1.2.3.4' /usr/lib/python2.7/dist-packages\n```",
+      "score": {
+        "rubric_match": true,
+        "missing_groups": [],
+        "forbidden_matches": [],
+        "reference_pass": true,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "comp_git_oneline",
+      "mode": "complete",
+      "output": "-error",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "git log --on-error",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_ctx_extract_0",
+      "mode": "complete",
+      "output": "/var/lib/dpkg/info/linux-image-3.13.0-42-generic.tar",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "tar -xzf /var/lib/dpkg/info/linux-image-3.13.0-42-generic.tar",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_nospace_cat",
+      "mode": "complete",
+      "output": " /etc/profile.d/my-bash-script.sh",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "cat /etc/profile.d/my-bash-script.sh",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    }
+  ]
+}

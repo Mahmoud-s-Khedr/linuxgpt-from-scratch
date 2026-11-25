@@ -1,0 +1,123 @@
+{
+  "model": "gpt2_15m_sft",
+  "settings": {
+    "qa_temperature": 0.3,
+    "top_p": 0.9,
+    "qa_repetition_penalty": 1.18,
+    "completion_temperature": 0,
+    "completion_repetition_penalty": 1.05,
+    "penalty_window": "last 48 generated tokens",
+    "seed": 123
+  },
+  "limitations": "Six selected cases, one seed, same output caps; supplemental sensitivity diagnostic, not a full second benchmark.",
+  "responses": [
+    {
+      "case_id": "qa_hidden",
+      "mode": "qa",
+      "output": "You can use `find . -type f` to find the current directory.\n\n```\nfind . -name \"*.jpg\" -exec mv {} \\;\n```",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "\\bls\\s+[^\\n`]*-(?:[a-zA-Z]*a|[a-zA-Z]*A|-(?:all|almost-all))"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_large",
+      "mode": "qa",
+      "output": "I would recommend using the `find` command.\n\n```\nfind . -type f -exec mv {} +\n```",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "-size\\s+\\+(?:1G|1073741824c)"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "qa_fake_grep",
+      "mode": "qa",
+      "output": "The `-n` option is used for `grep`.\n\n```\n$ grep -v 'pattern' | awk '{print $2}'\n```",
+      "score": {
+        "rubric_match": false,
+        "missing_groups": [
+          [
+            "not (?:a |an )?(?:valid|real|supported|standard|recognized|actual|existing)|does not exist|doesn.t exist|no such|unrecognized|unknown option|invalid option|unsupported|not.*(?:option|flag)|no.*(?:option|flag)"
+          ]
+        ],
+        "forbidden_matches": [],
+        "reference_pass": false,
+        "unexpected_effect_flag": false,
+        "repetition_4gram": 0.0,
+        "empty": false,
+        "shell_syntax_ok": true
+      }
+    },
+    {
+      "case_id": "comp_git_oneline",
+      "mode": "complete",
+      "output": "t <path/to/file>",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "git log --ont <path/to/file>",
+        "shell_syntax_ok": false,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_ctx_extract_0",
+      "mode": "complete",
+      "output": "<path/to/file>",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "tar -xzf <path/to/file>",
+        "shell_syntax_ok": false,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    },
+    {
+      "case_id": "comp_nospace_cat",
+      "mode": "complete",
+      "output": " | grep -v \"Foo\"",
+      "score": {
+        "reference_pass": false,
+        "suffix_reference_match": false,
+        "full_command": "cat | grep -v \"Foo\"",
+        "shell_syntax_ok": true,
+        "unexpected_effect_flag": false,
+        "empty": false,
+        "multiline": false,
+        "markdown": false,
+        "echoes_prefix": false,
+        "repetition_4gram": 0.0
+      }
+    }
+  ]
+}

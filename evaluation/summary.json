@@ -1,0 +1,1946 @@
+[
+  {
+    "name": "gpt2_15m_pretrain",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_gpt2_15m/pretrain_bf16.pt",
+        "checkpoint_sha256": "6e89cfbd59f8f5e1c0590bead22052e374b145860ef5d5d9171c8f0c6c5dd137",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "pretrain",
+        "step": 1750,
+        "name": "gpt2_15m_pretrain",
+        "parameters": 17135616,
+        "context_limit": 512,
+        "load_ms": 563.8141550007276,
+        "resident_mb_after_load": 433.796875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 2,
+      "reference_pass_pct": 3.7,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 821.7743424975197,
+      "p95_total_ms": 904.4167301010019,
+      "median_ttft_ms": 10.31001350202132,
+      "p95_ttft_ms": 13.05693939830234,
+      "mean_repetition_4gram": 0.5742349543660589,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 136.29047957690304,
+      "hit_generation_cap": 54
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 173.20274099620292,
+      "p95_total_ms": 200.19471389896353,
+      "median_ttft_ms": 9.130000998993637,
+      "p95_ttft_ms": 11.425721099294606,
+      "mean_repetition_4gram": 0.122116095286827,
+      "median_output_tokens": 24.0,
+      "median_tokens_per_s": 138.56603638700057,
+      "hit_generation_cap": 82,
+      "shell_syntax_pass_pct": 63.41,
+      "multiline": 67,
+      "markdown": 24,
+      "prefix_echo": 11
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 1
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 14
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": ".",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 130.46795599802863,
+          "ttft_ms": 130.55069300025934,
+          "total_ms": 130.55356899712933,
+          "cpu_ms": 512.044966000019,
+          "tokens_per_s": 7.659691019415857,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 432.671875
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "cat",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 131.1447829939425,
+          "ttft_ms": 131.24614499974996,
+          "total_ms": 131.24969199998304,
+          "cpu_ms": 518.3441339999888,
+          "tokens_per_s": 7.619065498455639,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 432.671875
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat cat",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": true,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 432.671875,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 829.1516919998685,
+        "p95_ms": 846.1327862009057
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 170.00643700157525,
+        "p95_ms": 189.52361660194583
+      }
+    }
+  },
+  {
+    "name": "llama_15m_pretrain",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_llama_15m/pretrain_bf16.pt",
+        "checkpoint_sha256": "b16628994ad0fa6ce4215db74c4b799a9fd14e64cb1fb3ae56ee2e646a28065d",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "pretrain",
+        "step": 1999,
+        "name": "llama_15m_pretrain",
+        "parameters": 15733632,
+        "context_limit": 512,
+        "load_ms": 727.2669160010992,
+        "resident_mb_after_load": 353.01171875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 980.0261650016182,
+      "p95_total_ms": 1114.16973250125,
+      "median_ttft_ms": 12.048247001075651,
+      "p95_ttft_ms": 14.831824399516336,
+      "mean_repetition_4gram": 0.21406565182179296,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 114.28521235942773,
+      "hit_generation_cap": 54
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 207.95748549790005,
+      "p95_total_ms": 246.14358774815628,
+      "median_ttft_ms": 10.946513000817504,
+      "p95_ttft_ms": 13.17211209643574,
+      "mean_repetition_4gram": 0.062311265969802555,
+      "median_output_tokens": 24.0,
+      "median_tokens_per_s": 115.40920880238076,
+      "hit_generation_cap": 82,
+      "shell_syntax_pass_pct": 58.54,
+      "multiline": 59,
+      "markdown": 51,
+      "prefix_echo": 2
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 0
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 14
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": ".",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 148.89219099859474,
+          "ttft_ms": 148.99798199621728,
+          "total_ms": 149.00223999575246,
+          "cpu_ms": 584.3164529999854,
+          "tokens_per_s": 6.7113085013252585,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 421.19140625
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "file",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 149.40734000265365,
+          "ttft_ms": 149.6856990052038,
+          "total_ms": 149.69041800213745,
+          "cpu_ms": 587.0926910000094,
+          "tokens_per_s": 6.68045432263888,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 421.19140625
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat file",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 421.19140625,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 978.4602350046043,
+        "p95_ms": 1061.7743497961783
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 197.01255999825662,
+        "p95_ms": 248.97917520138435
+      }
+    }
+  },
+  {
+    "name": "gpt2_50m_pretrain",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_gpt2_50m/pretrain_bf16.pt",
+        "checkpoint_sha256": "f6a0f0fb1044d910e2f632c01aaac6f13a7412ed6d5123dd6c56a0c72e6296f0",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "pretrain",
+        "step": 2999,
+        "name": "gpt2_50m_pretrain",
+        "parameters": 40437760,
+        "context_limit": 1024,
+        "load_ms": 1229.3303380065481,
+        "resident_mb_after_load": 495.13671875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 2,
+      "reference_pass_pct": 3.7,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1773.9781724994828,
+      "p95_total_ms": 2002.694742197127,
+      "median_ttft_ms": 27.611458997853333,
+      "p95_ttft_ms": 35.17987269806326,
+      "mean_repetition_4gram": 0.5270546811337461,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 63.10894922690795,
+      "hit_generation_cap": 53
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 374.4984414988721,
+      "p95_total_ms": 426.3855302986485,
+      "median_ttft_ms": 22.438457501266384,
+      "p95_ttft_ms": 28.315434500473202,
+      "mean_repetition_4gram": 0.09524205469327421,
+      "median_output_tokens": 24.0,
+      "median_tokens_per_s": 64.08572654833216,
+      "hit_generation_cap": 82,
+      "shell_syntax_pass_pct": 68.29,
+      "multiline": 57,
+      "markdown": 11,
+      "prefix_echo": 14
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 2
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 15
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?why?",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 923,
+          "prompt_truncated": false,
+          "output_tokens": 101,
+          "prefill_ms": 731.5116940008011,
+          "ttft_ms": 731.6749439996784,
+          "total_ms": 3111.4021910034353,
+          "cpu_ms": 11982.533217000026,
+          "tokens_per_s": 32.46124859461747,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 665.83984375
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "cat",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 1023,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 921.7105050047394,
+          "ttft_ms": 921.8171380052809,
+          "total_ms": 921.8213760032086,
+          "cpu_ms": 3376.640375999955,
+          "tokens_per_s": 1.0848088643113862,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 665.83984375
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat cat",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": true,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 665.83984375,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 1822.50173400098,
+        "p95_ms": 2050.3326487989398
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 361.6031249985099,
+        "p95_ms": 426.7104154001572
+      }
+    }
+  },
+  {
+    "name": "llama_50m_pretrain",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_llama_50m/pretrain_bf16.pt",
+        "checkpoint_sha256": "459123a799bbf7319f9e13c5810a4dcb1a9084244766181aed702e56d8512b67",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "pretrain",
+        "step": 2999,
+        "name": "llama_50m_pretrain",
+        "parameters": 36579840,
+        "context_limit": 1024,
+        "load_ms": 1148.378894002235,
+        "resident_mb_after_load": 477.03515625
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 3,
+      "reference_pass_pct": 5.56,
+      "unexpected_effect_flags": 2,
+      "empty": 0,
+      "median_total_ms": 1766.071235499112,
+      "p95_total_ms": 1839.2013561991917,
+      "median_ttft_ms": 23.50173349987017,
+      "p95_ttft_ms": 30.992311650334155,
+      "mean_repetition_4gram": 0.5210358229031606,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 63.417616928523586,
+      "hit_generation_cap": 54
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 1,
+      "empty": 0,
+      "median_total_ms": 370.56081899936544,
+      "p95_total_ms": 419.6723188015312,
+      "median_ttft_ms": 20.24428300501313,
+      "p95_ttft_ms": 24.122710649680812,
+      "mean_repetition_4gram": 0.05103077816492451,
+      "median_output_tokens": 24.0,
+      "median_tokens_per_s": 64.76670064480015,
+      "hit_generation_cap": 82,
+      "shell_syntax_pass_pct": 67.07,
+      "multiline": 57,
+      "markdown": 41,
+      "prefix_echo": 31
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 3
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 14
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "ing the server's directory. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux.",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 923,
+          "prompt_truncated": false,
+          "output_tokens": 101,
+          "prefill_ms": 586.5323989928584,
+          "ttft_ms": 586.618332999933,
+          "total_ms": 2518.897471993114,
+          "cpu_ms": 9940.01126500001,
+          "tokens_per_s": 40.09690792221181,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 632.8984375
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.8961038961038961,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": ")",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 1023,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 665.5893520000973,
+          "ttft_ms": 665.6988700051443,
+          "total_ms": 665.7024770029238,
+          "cpu_ms": 2592.9599249999455,
+          "tokens_per_s": 1.5021725688961314,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 632.8984375
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat )",
+          "shell_syntax_ok": false,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 632.8984375,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 1803.4607579975273,
+        "p95_ms": 1929.6061755987466
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 380.62434300081804,
+        "p95_ms": 428.83875840052497
+      }
+    }
+  },
+  {
+    "name": "gpt2_15m_sft",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_gpt2_15m/sft_bf16.pt",
+        "checkpoint_sha256": "c6868c3f0167270f4639f29ea16f530b3e0ab880ff73afa46fbb0f32c171584d",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "sft",
+        "step": 1199,
+        "name": "gpt2_15m_sft",
+        "parameters": 17135616,
+        "context_limit": 512,
+        "load_ms": 604.7578349971445,
+        "resident_mb_after_load": 433.88671875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 2,
+      "reference_pass_pct": 3.7,
+      "unexpected_effect_flags": 5,
+      "empty": 0,
+      "median_total_ms": 792.8059950027091,
+      "p95_total_ms": 857.6138752508995,
+      "median_ttft_ms": 10.004463001678232,
+      "p95_ttft_ms": 12.369065550592493,
+      "mean_repetition_4gram": 0.6702018808223349,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 141.27037495056703,
+      "hit_generation_cap": 54
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 1,
+      "reference_pass_pct": 1.35,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 64.94773449594504,
+      "p95_total_ms": 170.8964914054377,
+      "median_ttft_ms": 8.74870649931836,
+      "p95_ttft_ms": 10.26194344740361,
+      "mean_repetition_4gram": 0.09568778105363471,
+      "median_output_tokens": 8.0,
+      "median_tokens_per_s": 126.45442098673502,
+      "hit_generation_cap": 13,
+      "shell_syntax_pass_pct": 45.12,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 2
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 1
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 1
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 8
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "The",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 120.90489199908916,
+          "ttft_ms": 120.97715900017647,
+          "total_ms": 120.97971399634844,
+          "cpu_ms": 475.1733469999806,
+          "tokens_per_s": 8.265848603594677,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 432.79296875
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": " ",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 124.37401500210399,
+          "ttft_ms": 124.47482700372348,
+          "total_ms": 124.47894499928225,
+          "cpu_ms": 488.2072540000024,
+          "tokens_per_s": 8.03348710905098,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 432.79296875
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat  ",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": true,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 432.79296875,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 819.5988270017551,
+        "p95_ms": 876.0907995994785
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 64.31769100163365,
+        "p95_ms": 69.14607400103705
+      }
+    }
+  },
+  {
+    "name": "llama_15m_sft",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_llama_15m/sft_bf16.pt",
+        "checkpoint_sha256": "4959dea4aed528a051219d3c013280ba0de586a3b94f9878d1bba2cd260fc811",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "sft",
+        "step": 1199,
+        "name": "llama_15m_sft",
+        "parameters": 15733632,
+        "context_limit": 512,
+        "load_ms": 600.462583002809,
+        "resident_mb_after_load": 353.1171875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 2,
+      "reference_pass_pct": 3.7,
+      "unexpected_effect_flags": 1,
+      "empty": 0,
+      "median_total_ms": 871.7089899982966,
+      "p95_total_ms": 930.1358180971874,
+      "median_ttft_ms": 11.122892999992473,
+      "p95_ttft_ms": 13.580348752657297,
+      "mean_repetition_4gram": 0.6152146950033756,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 127.32072205029309,
+      "hit_generation_cap": 48
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 1,
+      "reference_pass_pct": 1.35,
+      "unexpected_effect_flags": 1,
+      "empty": 0,
+      "median_total_ms": 67.24477399984607,
+      "p95_total_ms": 194.63941514586622,
+      "median_ttft_ms": 9.510820000286913,
+      "p95_ttft_ms": 12.903627151536059,
+      "mean_repetition_4gram": 0.018157181571815718,
+      "median_output_tokens": 7.0,
+      "median_tokens_per_s": 110.54237735597397,
+      "hit_generation_cap": 9,
+      "shell_syntax_pass_pct": 58.54,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 0
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 1
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 0
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 12
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "The",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 103.36074999941047,
+          "ttft_ms": 103.43850700155599,
+          "total_ms": 103.4421040021698,
+          "cpu_ms": 407.58997999998314,
+          "tokens_per_s": 9.667243427096418,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 420.921875
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.0,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "file",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 511,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 109.61885299911955,
+          "ttft_ms": 109.70677000295836,
+          "total_ms": 109.71051800152054,
+          "cpu_ms": 430.85693300000116,
+          "tokens_per_s": 9.114896349191792,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 420.921875
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat file",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 420.921875,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 863.6712879961124,
+        "p95_ms": 897.2886071976973
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 71.19915899966145,
+        "p95_ms": 152.082290200633
+      }
+    }
+  },
+  {
+    "name": "gpt2_50m_sft",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_gpt2_50m/sft_bf16.pt",
+        "checkpoint_sha256": "961befc707bcc6fcab1016d62eadb340756a4f0d3675c07ab2cfafc6c2c38ea7",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "sft",
+        "step": 1499,
+        "name": "gpt2_50m_sft",
+        "parameters": 40437760,
+        "context_limit": 1024,
+        "load_ms": 1129.7152760016616,
+        "resident_mb_after_load": 495.21875
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 2,
+      "reference_pass_pct": 3.7,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1612.5172680003743,
+      "p95_total_ms": 1836.2383258496266,
+      "median_ttft_ms": 24.645847999636317,
+      "p95_ttft_ms": 33.10693860039464,
+      "mean_repetition_4gram": 0.6385201806829769,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 69.45675195095225,
+      "hit_generation_cap": 54
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 1,
+      "empty": 0,
+      "median_total_ms": 138.46084550095838,
+      "p95_total_ms": 344.49088634646614,
+      "median_ttft_ms": 21.438261999719543,
+      "p95_ttft_ms": 28.680397300558987,
+      "mean_repetition_4gram": 0.019376693766937667,
+      "median_output_tokens": 8.0,
+      "median_tokens_per_s": 56.05268198777233,
+      "hit_generation_cap": 9,
+      "shell_syntax_pass_pct": 59.76,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 0
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 0
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 7
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "\n\n\n\n\n\n\n\n```\n```\n\n\n```\n\n```\n\n\n```\n\n\n```\n\n\n```\n\nserver. Linux. Linux. Linux. Linux. Linux. Linux\n\n\n\n\n\n```\n\n\n\n```\n\n\n```\n\n\n\n```\n\n\n```\n\n\nserver. Linux. Linux. Linux. Linux. Linux. Linux. Linux. Linux. Linux. Linux. Linux\n\n\n\n\n",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 923,
+          "prompt_truncated": false,
+          "output_tokens": 101,
+          "prefill_ms": 682.353375996172,
+          "ttft_ms": 682.4347700021463,
+          "total_ms": 2880.524599000637,
+          "cpu_ms": 11131.980990000045,
+          "tokens_per_s": 35.0630576232679,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 665.91015625
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.6428571428571428,
+          "empty": false,
+          "shell_syntax_ok": true
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "<",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 1023,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 773.4475940014818,
+          "ttft_ms": 773.5599270017701,
+          "total_ms": 773.5640949977096,
+          "cpu_ms": 2868.335996999974,
+          "tokens_per_s": 1.2927177029887367,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 665.91015625
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat <",
+          "shell_syntax_ok": false,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 665.91015625,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 1768.4663990003173,
+        "p95_ms": 1915.3530026000226
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 158.31983600219246,
+        "p95_ms": 193.1424361973768
+      }
+    }
+  },
+  {
+    "name": "llama_50m_sft",
+    "cases_completed": 138,
+    "errors": 0,
+    "metadata": {
+      "model": {
+        "checkpoint": "experiments/A-pytorch-gpt/runs/colab_llama_50m/sft_bf16.pt",
+        "checkpoint_sha256": "eedee22005b29aa6b59e97ba042612048f3f3472b8c766f8868d09c479cc39e1",
+        "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+        "stage": "sft",
+        "step": 1499,
+        "name": "llama_50m_sft",
+        "parameters": 36579840,
+        "context_limit": 1024,
+        "load_ms": 1045.471486999304,
+        "resident_mb_after_load": 476.90625
+      },
+      "settings": {
+        "threads": 4,
+        "dtype": "float32",
+        "decoding": "greedy",
+        "repetition_penalty": 1.0,
+        "seed": 123,
+        "runtime": "pytorch_cpu",
+        "hf_lora": "merged in memory",
+        "generation_impl": 1
+      },
+      "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+      "versions": {
+        "torch": "2.15.0+cpu",
+        "transformers": "5.24.1",
+        "peft": "0.22.0",
+        "tokenizers": "0.23.3",
+        "safetensors": "0.8.0"
+      },
+      "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+      "platform": "7.3.3-300.fc45.x86_64"
+    },
+    "qa": {
+      "n": 54,
+      "scored": 54,
+      "reference_pass": 6,
+      "reference_pass_pct": 11.11,
+      "unexpected_effect_flags": 0,
+      "empty": 0,
+      "median_total_ms": 1799.3603905015334,
+      "p95_total_ms": 1921.2983370522124,
+      "median_ttft_ms": 25.499063500319608,
+      "p95_ttft_ms": 34.22695355002361,
+      "mean_repetition_4gram": 0.5104833649550344,
+      "median_output_tokens": 112.0,
+      "median_tokens_per_s": 62.08929165351813,
+      "hit_generation_cap": 49
+    },
+    "complete": {
+      "n": 82,
+      "scored": 74,
+      "reference_pass": 0,
+      "reference_pass_pct": 0.0,
+      "unexpected_effect_flags": 1,
+      "empty": 0,
+      "median_total_ms": 146.7370984973968,
+      "p95_total_ms": 402.3848758020904,
+      "median_ttft_ms": 20.844954498898005,
+      "p95_ttft_ms": 24.73928869840165,
+      "mean_repetition_4gram": 0.003048780487804878,
+      "median_output_tokens": 8.0,
+      "median_tokens_per_s": 55.42387706522298,
+      "hit_generation_cap": 14,
+      "shell_syntax_pass_pct": 68.29,
+      "multiline": 0,
+      "markdown": 0,
+      "prefix_echo": 0
+    },
+    "categories": {
+      "archive": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "concepts": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "containers": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "context_path": {
+        "n": 32,
+        "reference_pass": 0
+      },
+      "files": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "find": {
+        "n": 5,
+        "reference_pass": 0
+      },
+      "git": {
+        "n": 4,
+        "reference_pass": 0
+      },
+      "intent_context": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "network": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "open_ended": {
+        "n": 0,
+        "reference_pass": 0
+      },
+      "partial_flag": {
+        "n": 24,
+        "reference_pass": 0
+      },
+      "permissions": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "process": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting": {
+        "n": 2,
+        "reference_pass": 0
+      },
+      "quoting_whitespace": {
+        "n": 10,
+        "reference_pass": 0
+      },
+      "services": {
+        "n": 4,
+        "reference_pass": 1
+      },
+      "shell": {
+        "n": 5,
+        "reference_pass": 2
+      },
+      "storage": {
+        "n": 2,
+        "reference_pass": 1
+      },
+      "text": {
+        "n": 8,
+        "reference_pass": 0
+      },
+      "unsupported": {
+        "n": 6,
+        "reference_pass": 0
+      }
+    },
+    "context_pairs": {
+      "n": 16,
+      "both_reference_pass": 0,
+      "different_outputs": 10
+    },
+    "long_context": [
+      {
+        "case_id": "qa_long",
+        "mode": "qa",
+        "category": "long_context",
+        "output": "The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The server runs Linux. The",
+        "stats": {
+          "prompt_tokens": 923,
+          "used_prompt_tokens": 923,
+          "prompt_truncated": false,
+          "output_tokens": 101,
+          "prefill_ms": 694.3058800025028,
+          "ttft_ms": 694.4708439987153,
+          "total_ms": 2739.098247999209,
+          "cpu_ms": 10730.650014000048,
+          "tokens_per_s": 36.87344916297766,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 632.65234375
+        },
+        "score": {
+          "rubric_match": false,
+          "missing_groups": [
+            [
+              "\\bpwd\\b"
+            ]
+          ],
+          "forbidden_matches": [],
+          "reference_pass": false,
+          "unexpected_effect_flag": false,
+          "repetition_4gram": 0.9487179487179487,
+          "empty": false,
+          "shell_syntax_ok": null
+        },
+        "error": null
+      },
+      {
+        "case_id": "comp_long",
+        "mode": "complete",
+        "category": "long_context",
+        "output": "s",
+        "stats": {
+          "prompt_tokens": 1216,
+          "used_prompt_tokens": 1023,
+          "prompt_truncated": true,
+          "output_tokens": 1,
+          "prefill_ms": 693.4302869995008,
+          "ttft_ms": 693.5327709943522,
+          "total_ms": 693.5363379961927,
+          "cpu_ms": 2677.325197000016,
+          "tokens_per_s": 1.4418855151689105,
+          "stop_reason": "context_limit",
+          "process_peak_rss_mb": 632.65234375
+        },
+        "score": {
+          "reference_pass": false,
+          "suffix_reference_match": false,
+          "full_command": "cat s",
+          "shell_syntax_ok": true,
+          "unexpected_effect_flag": false,
+          "empty": false,
+          "multiline": false,
+          "markdown": false,
+          "echoes_prefix": false,
+          "repetition_4gram": 0.0
+        },
+        "error": null
+      }
+    ],
+    "process_peak_rss_mb": 632.65234375,
+    "repeated_warm_timing": {
+      "qa": {
+        "samples": 9,
+        "median_ms": 1882.1540839999216,
+        "p95_ms": 1935.3466853979626
+      },
+      "complete": {
+        "samples": 9,
+        "median_ms": 220.2173080004286,
+        "p95_ms": 382.4657820019638
+      }
+    }
+  }
+]

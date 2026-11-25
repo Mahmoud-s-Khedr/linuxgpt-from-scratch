@@ -1,0 +1,34 @@
+{
+  "model": {
+    "checkpoint": "experiments/A-pytorch-gpt/runs/colab_gpt2_50m/sft_bf16.pt",
+    "checkpoint_sha256": "961befc707bcc6fcab1016d62eadb340756a4f0d3675c07ab2cfafc6c2c38ea7",
+    "tokenizer_sha256": "9171b2c700e2809f0e61cd2a66e02e5d10d7197cd7f4d52be466fbf13f7ef6ff",
+    "stage": "sft",
+    "step": 1499,
+    "name": "gpt2_50m_sft",
+    "parameters": 40437760,
+    "context_limit": 1024,
+    "load_ms": 1129.7152760016616,
+    "resident_mb_after_load": 495.21875
+  },
+  "settings": {
+    "threads": 4,
+    "dtype": "float32",
+    "decoding": "greedy",
+    "repetition_penalty": 1.0,
+    "seed": 123,
+    "runtime": "pytorch_cpu",
+    "hf_lora": "merged in memory",
+    "generation_impl": 1
+  },
+  "suite_sha256": "e627fd648cbfdfb56d5df6e4da55b8a6b84a6be2ce89aa24f2b8a66a707ac609",
+  "versions": {
+    "torch": "2.15.0+cpu",
+    "transformers": "5.24.1",
+    "peft": "0.22.0",
+    "tokenizers": "0.23.3",
+    "safetensors": "0.8.0"
+  },
+  "python": "3.12.16 (main, Oct 29 2026, 00:00:00) [GCC 16.2.1 20260819 (Red Hat 16.2.1-2)]",
+  "platform": "7.3.3-300.fc45.x86_64"
+}

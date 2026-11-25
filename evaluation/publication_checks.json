@@ -1,0 +1,10 @@
+{
+  "checked_utc": "2026-11-25T05:57:09.453042+00:00",
+  "unit_tests": "passed",
+  "archived_scores_recomputed": "passed",
+  "credential_scan": "passed",
+  "source_compilation": "passed",
+  "job_shell_syntax": "passed",
+  "gpu_training_for_publication": false,
+  "standalone_tiny_cpu_pipeline": "passed: tokenizer, pretrain-data preparation, SFT-data construction, two pretrain steps, two SFT steps, explicit-checkpoint CLI"
+}
