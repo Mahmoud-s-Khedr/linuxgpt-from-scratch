@@ -49,15 +49,61 @@ python train_sft.py --arch llama --preset 15m --init_ckpt runs/pretrain_llama_15
 
 Use `--arch gpt2` for the other architecture. Preset names are approximate size labels: the evaluated GPT-2/LLaMA 15M models contain 17.1M/15.7M parameters, and the 50M presets contain 40.4M/36.6M.
 
-## Use the CLI
+## Ask Linux questions from the CLI (Q&A)
+
+Run these commands from the repository root with your virtual environment activated. First train a model as above, or copy your trained checkpoint and its matching tokenizer into this checkout. The repository contains source and saved evaluation responses; it does not include model weights.
+
+### Ask one question
+
+For the LLaMA 15M checkpoint produced by the training commands above:
 
 ```bash
-python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt "How do I find large files?"
-python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --complete --ctx 'files=compose.yml' 'docker compose '
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --tokenizer artifacts/tokenizer.json "How do I find large files?"
+```
+
+Q&A is the default mode. The question must be quoted as one shell argument. The CLI prints the model's answer; generated commands are not executed. `--tokenizer` defaults to `artifacts/tokenizer.json` and must match the checkpoint's training tokenizer.
+
+For a GPT-2 checkpoint trained with `--arch gpt2`, change the checkpoint path:
+
+```bash
+python cli.py --checkpoint runs/sft_gpt2_15m/sft_best.pt "What is the difference between chmod and chown?"
+```
+
+To control answer length and use greedy decoding:
+
+```bash
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --max-tokens 256 --temp 0 "How do I check free disk space?"
+```
+
+### Interactive Q&A
+
+Load the model once, then enter questions at the prompt:
+
+```bash
 python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --chat
 ```
 
-The CLI displays suggestions; it does not execute generated commands. This is a CLI prototype, not an installed Bash/Zsh inline widget. Historical Colab downloads under `runs/colab_<arch>_<preset>/` can also be discovered with `--list` and `--model`.
+Type `quit` or `exit` to stop. Each question is answered independently; previous turns are not included as conversation history.
+
+### Use a downloaded Colab checkpoint
+
+The Colab runner stores checkpoints under `runs/colab_<arch>_<preset>/`. List them and select one by name:
+
+```bash
+python cli.py --list
+python cli.py --model llama_50m "How do I find large files?"
+python cli.py --model gpt2_15m --chat
+```
+
+These names work after you download the corresponding trained checkpoint. The default stage is SFT; `--stage pretrain` selects a pretraining checkpoint for comparison.
+
+## Autocomplete
+
+```bash
+python cli.py --checkpoint runs/sft_llama_15m/sft_best.pt --complete --ctx 'files=compose.yml' 'docker compose '
+```
+
+The CLI displays suggestions; it does not execute generated commands. This is a CLI prototype, not an installed Bash/Zsh inline widget.
 
 ## Optional Colab automation
 
